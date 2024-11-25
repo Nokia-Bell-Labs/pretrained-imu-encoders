@@ -235,7 +235,7 @@ if __name__ == "__main__":
     parser.add_argument("--seed", default=1234, type=int)
     parser.add_argument("--wandb", default=False, action="store_true")
     parser.add_argument("--wandb_project_name", default="evaluation_downstream")
-    parser.add_argument("--wandb_entity", default="arnavmdas")
+    parser.add_argument("--wandb_entity", default=None)
     parser.add_argument("--wandb_run_name", default=None)
     parser.add_argument("--finetune", default=False, action="store_true")
     parser.add_argument("--multihead", default=False, action="store_true", help="Use multihead model")
