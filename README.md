@@ -1,6 +1,6 @@
 ## PRIMUS 
 This is the code for [PRIMUS], a novel pre-training approach to learn effective Inertial Measurement Unit (IMU) motion sensor representations with multimodal and self-supervised learning. This code is built off of the original repo developed
-by [IMU2CLIP] (https://arxiv.org/abs/2210.14395).
+by [IMU2CLIP](https://arxiv.org/abs/2210.14395).
 
 <ADD A FIGURE>
 
@@ -18,7 +18,21 @@ pip install pandas
 pip install transformers
 ```
 
-@TODO: Update this with EgoExo4D installation instructions
+To obtain the EgoExo4D dataset for pretraining, please follow the [instructions given on the official EgoExo4D website](https://docs.ego-exo4d-data.org/getting-started/).
+
+Here are the instructions for downloading the data partition that are relevant to this paper (correct as of June 2024, please refer to the official website for up-to-date instructions):
+1. First review and sign the license agreement for getting access to EgoExo4D ([link](https://docs.ego-exo4d-data.org/getting-started/)).
+2. [Obtain the EgoExo4D Downloader CLI](https://github.com/facebookresearch/Ego4d?tab=readme-ov-file#setup)
+3. Download the relevant parts (some of these commands could be redundant)
+```
+egoexo -o /path/to/egoexo/ --benchmarks egopose
+egoexo -o /path/to/egoexo/ --benchmarks egopose --parts annotations
+egoexo -o /path/to/egoexo/ --views ego
+egoexo -o /path/to/egoexo/ --parts annotations metadata
+```
+The data should then be ready at the specified location (`/path/to/egoexo/`)
+
+**Make sure** that this path matches the ones defined in [dataset/egoexo4d/dataloader.py](dataset/egoexo4d/dataloader.py) (`DATA_PATH` and `PATH_EGO_META`).
 
 # Experiments
 
