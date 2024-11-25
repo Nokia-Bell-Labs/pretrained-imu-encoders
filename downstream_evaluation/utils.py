@@ -2,10 +2,7 @@ import torch
 import clip
 import random
 import numpy as np
-# from imagebind import data
 import torch
-# from imagebind.models import imagebind_model
-# from imagebind.models.imagebind_model import ModalityType
 from transformers import CLIPTokenizer, CLIPTextModelWithProjection, CLIPVisionModelWithProjection
 
 
