@@ -22,8 +22,8 @@ pip install transformers
 ## Setting up EgoExo4D
 To obtain the EgoExo4D dataset for pretraining, please follow the [instructions given on the official EgoExo4D website](https://docs.ego-exo4d-data.org/getting-started/).
 
-Here are the instructions for downloading the data partition that are relevant to this paper (correct as of June 2024, please refer to the official website for up-to-date instructions):
-1. First review and sign the license agreement for getting access to EgoExo4D ([link](https://docs.ego-exo4d-data.org/getting-started/)).
+Here are the instructions for downloading the data partition that is relevant to this paper (correct as of June 2024, please refer to the official website for up-to-date instructions):
+1. First review and sign the license agreement for getting access to EgoExo4D ([link](https://docs.ego-exo4d-data.org/getting-started/))
 2. [Obtain the EgoExo4D Downloader CLI](https://github.com/facebookresearch/Ego4d?tab=readme-ov-file#setup)
 3. Download the relevant parts (some of these commands could be redundant)
 ```
