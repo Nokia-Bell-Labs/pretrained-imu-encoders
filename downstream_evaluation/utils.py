@@ -66,25 +66,6 @@ def get_zeroshot_classifier(model_type="ViT-B/16", text_prompts=None, embed_dim=
         classification_head = torch.nn.Linear(embed_dim, num_classes)
     return classification_head
 
-def get_zeroshot_classifier_imagebind(model, text_prompts=None):
-
-    weights = []
-    for i,text_list in text_prompts.items():
-        inputs = {
-            ModalityType.TEXT: data.load_and_transform_text(text_list, 'cuda')
-        }
-        with torch.no_grad():
-            embeddings = model(inputs)[ModalityType.TEXT]
-            embeddings = embeddings/embeddings.norm(dim=-1, keepdim=True)
-            # embeddings = [emb/emb.norm(dim=-1, keepdim=True) for emb in embeddings]
-
-        weights.append(torch.mean(embeddings, dim=0))
-        
-
-    weights = torch.stack(weights, dim=0)
-    classification_head = ClassificationHead(normalize=True, weights=weights)
-
-    return classification_head
 
 def set_random_seed(seed: int) -> None:
 	"""
