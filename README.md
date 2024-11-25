@@ -4,7 +4,7 @@ by [IMU2CLIP](https://arxiv.org/abs/2210.14395).
 
 &nbsp;
 <div align="center">
-    <img src="figs/primus.png" alt="PRIMUS" width="400">
+    <img src="primus.png" alt="PRIMUS" width="400">
 </div>
 
 # Installation
