@@ -1,8 +1,9 @@
-## PRIMUS 
-This is the code for [PRIMUS], a novel pre-training approach to learn effective Inertial Measurement Unit (IMU) motion sensor representations with multimodal and self-supervised learning. This code is built off of the original repo developed
+# PRIMUS 
+This is the code repo for [PRIMUS](https://arxiv.org/abs/2411.15127), a novel pre-training approach to learn effective Inertial Measurement Unit (IMU) motion sensor representations with multimodal and self-supervised learning. This code is built off of the original repo developed
 by [IMU2CLIP](https://arxiv.org/abs/2210.14395).
 
-<ADD A FIGURE>
+&nbsp;
+![PRIMUS](primus.png)
 
 # Installation
 ```
@@ -18,6 +19,7 @@ pip install pandas
 pip install transformers
 ```
 
+## Setting up EgoExo4D
 To obtain the EgoExo4D dataset for pretraining, please follow the [instructions given on the official EgoExo4D website](https://docs.ego-exo4d-data.org/getting-started/).
 
 Here are the instructions for downloading the data partition that are relevant to this paper (correct as of June 2024, please refer to the official website for up-to-date instructions):
@@ -49,4 +51,19 @@ python pretraining.py --path_configs ./configs/train_contrastive/ego4d_imu2text+
 **To run a pretrained model in downstream task**
 ```
 python downstream.py
+```
+
+# Citation
+Please cite our work if you find our code repo useful:
+
+```
+@misc{das2024primuspretrainingimuencoders,
+      title={PRIMUS: Pretraining IMU Encoders with Multimodal Self-Supervision}, 
+      author={Arnav M. Das and Chi Ian Tang and Fahim Kawsar and Mohammad Malekzadeh},
+      year={2024},
+      eprint={2411.15127},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2411.15127}, 
+}
 ```
