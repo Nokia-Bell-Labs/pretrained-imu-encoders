@@ -52,8 +52,7 @@ python pretraining.py --path_configs ./configs/train_contrastive/ego4d_imu2text+
 
 **To run a pretrained model in downstream task**
 ```
-python downstream_evaluation/classification_downstream_egoexo4d.py --path_load_pretrained_imu_encoder $PATH_TO_CHECKPOINT  --num-shots $NUM_SHOTS --multihead &
-
+python downstream_evaluation/classification_downstream_egoexo4d.py --path_load_pretrained_imu_encoder $PATH_TO_CHECKPOINT  --num-shots $NUM_SHOTS --multihead 
 ```
 
 # Citation
