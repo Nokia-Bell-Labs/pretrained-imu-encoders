@@ -6,8 +6,6 @@ from torchmetrics import Accuracy, Metric
 from torch.optim.lr_scheduler import _LRScheduler
 import math
 import numpy as np
-# from imagebind.models.imagebind_model import ModalityType
-# from imagebind import data
 
 class MeanPerClassAccuracy(Metric):
     def __init__(self, num_classes, dist_sync_on_step=False):
@@ -49,15 +47,8 @@ class WarmupCosineAnnealingLR(_LRScheduler):
                 for base_lr in self.base_lrs
             ]
 
-
-def get_imagebind_input(imu, device):
-    inputs = {
-        ModalityType.IMU: imu.to(device).float()
-    }
-    return inputs
-
 class FewShotModel(pl.LightningModule):
-    def __init__(self, imu_encoder, clf, finetune=False, T_max=1000, num_classes=8, emb_type="mmcl", imagebind=False, metric="accuracy"):
+    def __init__(self, imu_encoder, clf, finetune=False, T_max=1000, num_classes=8, emb_type="mmcl", metric="accuracy"):
         super(FewShotModel, self).__init__()
         self.imu_encoder = imu_encoder
         self.clf = clf
@@ -70,9 +61,7 @@ class FewShotModel(pl.LightningModule):
             self.val_accuracy = MeanPerClassAccuracy(num_classes=num_classes)
 
         self.finetune = finetune
-        self.emb_type = emb_type # For compatibility with SLIP multihead model
-        self.imagebind = imagebind
-        # self.mlp = mlp
+        self.emb_type = emb_type # For compatibility multihead model
 
         # freeze all parameters in imu_encoder
         if not self.finetune:
@@ -103,9 +92,6 @@ class FewShotModel(pl.LightningModule):
     def training_step(self, batch, batch_idx):
         x,y = batch['imu'].float(),batch["labels"].long()
 
-        if self.imagebind:
-            x = get_imagebind_input(x, self.device)
-
         y_hat = self(x)
         loss = self.criterion(y_hat, y)
         acc = self.train_accuracy(y_hat, y)
@@ -118,8 +104,6 @@ class FewShotModel(pl.LightningModule):
 
     def validation_step(self, batch, batch_idx):
         x,y = batch['imu'].float(),batch["labels"].long()
-        if self.imagebind:
-            x = get_imagebind_input(x, self.device)
         y_hat = self(x)
         val_loss = self.criterion(y_hat, y)
         acc = self.val_accuracy(y_hat, y)
@@ -128,8 +112,6 @@ class FewShotModel(pl.LightningModule):
 
     def test_step(self, batch, batch_idx):
         x,y = batch['imu'].float(),batch["labels"].long()
-        if self.imagebind:
-            x = get_imagebind_input(x, self.device)
         y_hat = self(x)
         acc = self.val_accuracy(y_hat, y)
         self.test_step_yhat.append(y_hat.cpu())
