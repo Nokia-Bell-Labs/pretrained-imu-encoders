@@ -3,7 +3,9 @@ This is the code repo for [PRIMUS](https://arxiv.org/abs/2411.15127), a novel pr
 by [IMU2CLIP](https://arxiv.org/abs/2210.14395).
 
 &nbsp;
-<img src="primus.png" alt="PRIMUS" width="400">
+<div align="center">
+    <img src="figs/primus.png" alt="PRIMUS" width="400">
+</div>
 
 # Installation
 ```
