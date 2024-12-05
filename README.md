@@ -42,7 +42,7 @@ The data should then be ready at the specified location (`/path/to/egoexo/`)
 
 **To create a cache where the video frames are preprocessed run:**
 ```
-python pretraining.py --path_configs ./configs/train_contrastive/ego4d_imu2text+video_mw2_sampling_rate=50.yaml --dataset "egoexo4d" --multihead 
+python create_video_cache.py --path_configs ./configs/train_contrastive/ego4d_imu2text+video_mw2_sampling_rate=50.yaml --dataset "egoexo4d" --multihead 
 ```
 
 **To run an example train loop with all three loss terms in the paper:**

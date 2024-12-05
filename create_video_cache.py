@@ -9,8 +9,7 @@ from dataset.egoexo4d.dataloader import filter_narration, clean_narration_text
 from lib.imu_models import MW2StackRNNPoolingMultihead, MW2StackRNNPooling
 from lib.clip4clip_model import Clip4CLIPModel
 from lib.train_modules import PRIMUSLearningModule
-from lib.data_modules import Ego4dDataModule, EgoExo4dDataModule #, UnsupEgoExo4dDataModule, Split
-from lib.evaluation import evaluate
+from lib.data_modules import EgoExo4dDataModule #, UnsupEgoExo4dDataModule, Split
 from argparse import ArgumentParser
 import yaml
 
@@ -97,26 +96,6 @@ def train(configs):
             num_workers=num_workers_for_dm,
             pin_memory=True,
             drop_last=False,
-            dataset_params=dataset_params,
-            create_cache_mode=True
-        )
-
-    elif datasetname == "ego4d":
-        print("Initializing Ego4dDataModule")
-        dataset_params = {
-            "window_sec": window_sec,
-            "target_fps": target_fps,
-            "list_modalities": list_modalities,
-            "clean_narration_func": clean_narration_text,
-            "filter_narration_func": filter_narration,
-            "imu_sampling_rate": imu_sampling_rate,
-        }
-
-        datamodule = Ego4dDataModule(
-            batch_size=batch_size,
-            num_workers=num_workers_for_dm,
-            pin_memory=True,
-            drop_last=True,
             dataset_params=dataset_params,
             create_cache_mode=True
         )
@@ -221,7 +200,6 @@ if __name__ == "__main__":
     parser.add_argument("--ssl_coeff", default=0.5, type=float, help="SSL loss coefficient, final loss = ssl_coeff*ssl_loss + (1-ssl_coeff)*mmcl_loss")
     parser.add_argument("--transform_list", nargs="+", help="Indices of transforms to apply to the IMU frames. Transform list: [noise_transform_vectorized, scaling_transform_vectorized, negate_transform_vectorized, time_flip_transform_vectorized, time_segment_permutation_transform_improved, rotation_transform_vectorized]")
     args = parser.parse_args()
-
 
 
     # Load the YAML file
