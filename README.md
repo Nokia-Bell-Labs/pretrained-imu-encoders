@@ -7,6 +7,11 @@ by [IMU2CLIP](https://arxiv.org/abs/2210.14395).
     <img src="primus.png" alt="PRIMUS" width="600">
 </div>
 
+# News
+- PRIMUS has been accepted to [ICASSP 2025](https://2025.ieeeicassp.org/).
+- The paper is available on [arXiv](https://arxiv.org/abs/2411.15127).
+- A short version of the work was presented at the [Time Series in the Age of Large Models Workshop at NeurIPS 2024](https://neurips-time-series-workshop.github.io/accepted-papers/).
+
 # Installation
 ```
 conda create -n primus python=3.8
