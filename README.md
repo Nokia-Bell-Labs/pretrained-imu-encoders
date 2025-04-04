@@ -60,6 +60,9 @@ python pretraining.py --path_configs ./configs/train_contrastive/ego4d_imu2text+
 python downstream_evaluation/classification_downstream_egoexo4d.py --path_load_pretrained_imu_encoder $PATH_TO_CHECKPOINT  --num-shots $NUM_SHOTS --multihead 
 ```
 
+**Model checkpoint available in the link below**
+Link: https://zenodo.org/records/15147513
+
 # Citation
 Please cite our work if you find our code repo useful:
 
