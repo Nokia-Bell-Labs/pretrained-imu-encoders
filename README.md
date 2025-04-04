@@ -61,6 +61,7 @@ python downstream_evaluation/classification_downstream_egoexo4d.py --path_load_p
 ```
 
 **Model checkpoint available in the link below**
+
 Link: https://zenodo.org/records/15147513
 
 # Citation
