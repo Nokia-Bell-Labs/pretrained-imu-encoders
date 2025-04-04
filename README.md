@@ -1,4 +1,7 @@
 # PRIMUS 
+
+<mark> 📢 PRIMUS has been accepted for **oral presentation (lecture) at ICASSP 2025**! Join us on **Wed, April 9th, 5:00 PM in Room MR1.01 (Physiological & Wearable Signal Processing I), Hyderabad International Conference Centre**. </mark>
+
 This is the code repo for [PRIMUS](https://arxiv.org/abs/2411.15127), a novel pre-training approach to learn effective Inertial Measurement Unit (IMU) motion sensor representations with multimodal and self-supervised learning. This code is built off of the original repo developed
 by [IMU2CLIP](https://arxiv.org/abs/2210.14395).
 
@@ -8,7 +11,9 @@ by [IMU2CLIP](https://arxiv.org/abs/2210.14395).
 </div>
 
 # News
-- PRIMUS has been accepted to [ICASSP 2025](https://2025.ieeeicassp.org/).
+- PRIMUS has been accepted for **oral presentation (lecture) at ICASSP 2025**! Join us on **Wed, April 9th, 5:00 PM in Room MR1.01 (Physiological & Wearable Signal Processing I), Hyderabad International Conference Centre**.
+- Pretrained model checkpoint has been released at https://zenodo.org/records/15147513 . See [below](#experiments) for more information.
+- PRIMUS has been accepted at [ICASSP 2025](https://2025.ieeeicassp.org/).
 - The paper is available on [arXiv](https://arxiv.org/abs/2411.15127).
 - A short version of the work was presented at the [Time Series in the Age of Large Models Workshop at NeurIPS 2024](https://neurips-time-series-workshop.github.io/accepted-papers/).
 
@@ -64,17 +69,18 @@ python downstream_evaluation/classification_downstream_egoexo4d.py --path_load_p
 
 Link: https://zenodo.org/records/15147513
 
+(To run the model, replace `$PATH_TO_CHECKPOINT` with the path to the model checkpoint.)
+
 # Citation
 Please cite our work if you find our code repo useful:
 
 ```
-@misc{das2024primuspretrainingimuencoders,
-      title={PRIMUS: Pretraining IMU Encoders with Multimodal Self-Supervision}, 
-      author={Arnav M. Das and Chi Ian Tang and Fahim Kawsar and Mohammad Malekzadeh},
-      year={2024},
-      eprint={2411.15127},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2411.15127}, 
+@inproceedings{das2025primus,
+  title={PRIMUS: Pretraining IMU Encoders with Multimodal Self-Supervision},
+  author={Das, Arnav M and Tang, Chi Ian and Kawsar, Fahim and Malekzadeh, Mohammad},
+  booktitle={ICASSP 2025-2025 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  pages={1--5},
+  year={2025},
+  organization={IEEE}
 }
 ```
